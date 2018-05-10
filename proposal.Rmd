@@ -1,22 +1,30 @@
 ---
 title: "Project Proposal"
 author: "Allison Lee, Brian Luu, Tiffany Truong, Maggie Wang, Kiley Wong"
-date: "May 9, 2018"
+date: "May 14, 2018"
 output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ### Project Description
-This is a written, non-technical description of your project.  Depending on the specifics of your project, you should outline the answers to these (and perhaps other) questions:
+**What is the dataset you'll be working with?  Please include background on who collected the data, where you accessed it, and any additional information we should know about how this data came to be.**
 
-What is the dataset you'll be working with?  Please include background on who collected the data, where you accessed it, and any additional information we should know about how this data came to be.
+We will be working with the top Spotify tracks of 2017, which includes the names, artists, Spotify URIs and audio features of tracks from the Top Tracks of 2017 playlist. Descriptions of audio features are from the Spotify Web API. The data was retrieved from [kaggle.com](https://www.kaggle.com/nadintamer/top-tracks-of-2017/data). 
 
-Who is your target audience?  Depending on the domain of your data, there may be a variety of audiences interested in using the dataset.  You should hone in on one of these audiences.
+**Who is your target audience?  Depending on the domain of your data, there may be a variety of audiences interested in using the dataset.  You should hone in on one of these audiences.**
 
-What does your audience want to learn from your data?  Please list out at least 3 specific questions that your project will answer for your audience.
+Our targeted audience is people who listen to music frequently at least once a day which can include music listeners in general, Spotify users (either free users or premium users), etc. For this specific project, we want to the audience as people who listen to music at least once a day. 
+
+**What does your audience want to learn from your data?  Please list out at least 3 specific questions that your project will answer for your audience.**
+
+In particular our audience would want to learn ...
+
+- What tempo is most common in the featured top songs of 2017?
+- Is there a common pattern between the danceability and loudness?
+- Are higher speechiness (detects prescence of spoken words in the track) more common in the top featured, if not what is? 
 
 ### Technical Description
 This section of your proposal is an opportunity to think through the specific analytical steps you'll need to complete throughout the project.
