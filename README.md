@@ -25,7 +25,7 @@ We are using a static .csv file called _featuresdf.csv_ available through [kaggl
 
 **What types of data-wrangling (reshaping, reformatting, etc.) will you need to do to your data?**
 
-After loading the featuresdf.csv file in Rstudio and viewing its attributes, we decided that we will not need to reformat the data. We can use dplyr and other libraries to help us wrangle the data.
+After loading the featuresdf.csv file in Rstudio and viewing its attributes, we decided that we will not need to reformat the data since it is already a dataframe type. We will rely mostly on dplyr to help us wrangle the data. 
 
 **What (major/new) libraries will be using in this project (no need to list common libraries that are used in many projects such as dplyr)**
 
@@ -34,6 +34,6 @@ After loading the featuresdf.csv file in Rstudio and viewing its attributes, we 
 - ggplot2 for data visualizations
 - shiny for publishing our project
 
-**What major challenges do you anticipate? Not required, but optional: what questions, if any, will you be answering with statistical analysis/machine learning?**
+**What major challenges do you anticipate?**
 
 We anticipate challenges in wrangling our data to find and extract the information that is relevant to our project. Another challenge we will have is choosing how to present our data. Choosing types of charts or how we want to set the color and sizes and other details may be difficult.
