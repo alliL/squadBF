@@ -1,22 +1,17 @@
-library(httr)
-library(jsonlite)
+library(Rspotify)
+library(dplyr)
 
 source("api_key.R")
 
-endpoint <- "https://api.spotify.com/v1/users/spotify/playlists/37i9dQZF1DX5nwnRMcdReF"
-query_params <- list(client_id = spotify_id, response_type = "code",
-                     redirect_uri= "https%3A%2F%2Fexample.com%2Fcallback")
+keys <- spotifyOAuth("Song Analysis", client_id, client_secret)
+mood_booster <- getPlaylistSongs("spotify","37i9dQZF1DX3rxVfibe1L0",token=keys)
 
-# Send the HTTP Request to download the data
-# Extract the content and convert it from JSON
-response <- GET(endpoint, query = query_params)
-parsed_data <- fromJSON(content(response, "text"))
+datalist <- list()
+for (row_num in 1:nrow(mood_booster)) {
+  song <- mood_booster[row_num, ]$id
+  datalist[[row_num]] <- getFeatures(song, token=keys)
+}
 
-View(parsed_data)
+dataset = do.call(rbind, datalist)
 
-# SOMEONE HELP PLEASE
-# https://beta.developer.spotify.com/documentation/web-api/quick-start/
-
-
-# Top Tracks of 2017 URI
-# spotify:user:spotify:playlist:37i9dQZF1DX5nwnRMcdReF
+View(dataset)
