@@ -13,20 +13,26 @@ global_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbMDoHDwVN2tF"
 # top_tracks_2017 <- get_playlist_features("spotify", "37i9dQZF1DX5nwnRMcdReF")
 
 shinyServer(function(input, output) {
-  output$us_global <- renderPlotly({ 
+  output$us_global <- renderPlotly({
     x <- input$x_var
     y <- input$y_var
-      
-    us_data <- US_top_50 %>% select(x, y)
+
+    us_data <- US_top_50 %>% select(tracks, artist_full, x, y)
     us_data$type <- "US"
-    
-    global_data <- global_top_50 %>% select(x, y)
+
+    global_data <- global_top_50 %>% select(tracks, artist_full, x, y)
     global_data$type <- "global"
-    
+
     data <- rbind(us_data, global_data)
-    View(data)
-    
-    plot_ly(data = data, type = "scatter", mode = "markers", x = ~data[[input$x_var]],
-            y = ~data[[input$y_var]], color = ~type)
+
+    plot_ly(
+      data = data, type = "scatter", mode = "markers", x = ~ data[[x]],
+      y = ~ data[[y]], color = ~ type,
+      text = paste0(data$tracks, ", ", data$artist_full, "<br />", data$type)
+    ) %>%
+      layout(
+        xaxis = list(title = x),
+        yaxis = list(title = y)
+      )
   })
 })
