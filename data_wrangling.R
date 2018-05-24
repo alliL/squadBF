@@ -35,3 +35,4 @@ get_playlist_features <- function(playlist_user, playlist_ID) {
 mood_booster <- get_playlist_features("spotify", "37i9dQZF1DX3rxVfibe1L0")
 US_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbLRQDuF5jeBp")
 global_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbMDoHDwVN2tF")
+
