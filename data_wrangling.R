@@ -1,11 +1,15 @@
 # used Rspotify library to access Spotify API
 # see documentation here: https://www.r-bloggers.com/my-new-r-package/
 library(Rspotify)
+library(dplyr)
 
 # sourcing credentials such as client ID and client secret
 source("api_key.R")
 
 # set credentials for the Spotify API
+# IMPORTANT: set the "Redirect URI". Go to your Spotify application on the
+# web, go to "Edit Settings", and under "Redirect URIs", type 
+# "http://localhost:1410/"
 # first parameter: the name of your spotify application
 # second parameter: your Client ID, set this in your own api_key.R
 # third parameter: your Secret Client, set this in your own api_key.R
@@ -35,3 +39,4 @@ get_playlist_features <- function(playlist_user, playlist_ID) {
 mood_booster <- get_playlist_features("spotify", "37i9dQZF1DX3rxVfibe1L0")
 US_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbLRQDuF5jeBp")
 global_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbMDoHDwVN2tF")
+top_tracks_2017 <- get_playlist_features("spotify", "37i9dQZF1DX5nwnRMcdReF")
