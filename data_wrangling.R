@@ -33,18 +33,4 @@ get_playlist_features <- function(playlist_user, playlist_ID) {
   # combine playlist and playlist features
   full_join(playlist, playlist_features_only)
 }
-<<<<<<< HEAD
 
-# Some playlist examples to get started.
-# To get the "playlist user" and "playlist ID", right click on a spotify
-# playlist and go to 'Share' > 'Copy Spotify URI'
-mood_booster <- get_playlist_features("spotify", "37i9dQZF1DX3rxVfibe1L0")
-US_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbLRQDuF5jeBp")
-global_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbMDoHDwVN2tF")
-<<<<<<< HEAD
-
-=======
-top_tracks_2017 <- get_playlist_features("spotify", "37i9dQZF1DX5nwnRMcdReF")
->>>>>>> 13761d7b64bf5148671b1a5c619ba80c39a9353f
-=======
->>>>>>> 42f99d1f9c9ff057c78a5d130938039e1e1d9ae0
