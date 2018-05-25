@@ -107,13 +107,13 @@ shinyUI(navbarPage(
           label = "Feature of the Song",
           choices = features
         )
-      ),
+        ),
       mainPanel(
         plotlyOutput("feature_bubble")
       )
     )
   ), 
-
+  
   # Create a tabPanel to show bar plot
   tabPanel(
     "About Us",
