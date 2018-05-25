@@ -37,7 +37,8 @@ shinyUI(navbarPage(
           href = "https://www.r-bloggers.com/my-new-r-package/"
         ), "package to access Spotify API, we were able to analyze Spotify 
         playlists, artists, and features. Here is a list of song features:"
-      )
+      ),
+      tableOutput('feature_descriptions')
     )
   ),
 

@@ -13,6 +13,7 @@ source("data_wrangling.R")
 US_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbLRQDuF5jeBp")
 global_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbMDoHDwVN2tF")
 # top_tracks_2017 <- get_playlist_features("spotify", "37i9dQZF1DX5nwnRMcdReF")
+feature_descriptions <- read.csv("data/feature_descriptions.csv")
 
 # Make function which takes in audio features from "US_top_50"
 # and shows a bubble chart the artists, track names, popularity, and selected feature.
@@ -43,7 +44,7 @@ shinyServer(function(input, output) {
     us_data$type <- "US"
 
     global_data <- global_top_50 %>% select(tracks, artist_full, x, y)
-    global_data$type <- "global"
+    global_data$type <- "Global"
 
     data <- rbind(us_data, global_data)
 
@@ -57,6 +58,7 @@ shinyServer(function(input, output) {
         yaxis = list(title = y)
       )
   })
+  output$feature_descriptions <- renderTable(feature_descriptions)
   output$feature_bubble <- renderPlotly({
     return(bubble_plot(input$feature))
   })
