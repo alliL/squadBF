@@ -3,10 +3,19 @@ library(plotly)
 library(dplyr)
 
 colors <- list("Pink" = "#F9766E", "Blue" = "#619DFF", "Green" = "#01BA38")
-features <- c(
-  "popularity", "danceability", "energy", "key", "loudness", "mode", 
-  "speechiness", "acousticness", "instrumentalness", "liveness", "valence",
-  "tempo", "duration_ms"
+features <- list(
+  "Danceability" = "danceability",
+  "Energy" = "energy",
+  "Key" = "key",
+  "Loudness" = "loudness",
+  "Mode" = "mode",
+  "Speechiness" = "speechiness",
+  "Acousticness" = "acousticness",
+  "Instrumentalness" = "instrumenalness",
+  "Liveness" = "liveness",
+  "Valence" = "valence",
+  "Tempo" = "tempo",
+  "Duration (ms)" = "duration_ms"
 )
 
 shinyUI(navbarPage(
@@ -86,5 +95,30 @@ shinyUI(navbarPage(
       h3("Maggie Wang"),
       h3("Kiley Wong")
     )
+  ),
+  
+  tabPanel(
+    "Feature v.s. Popularity",
+    titlePanel(
+               h1("Feature of Song and its relationship to Popularity",
+                  style = "color:cadetblue;padding-bottom:20px"
+               )),
+    sidebarLayout(
+      sidebarPanel(
+        style = "position:fixed;width:300px;color:cadetblue",
+        p("Select the interest of feature of songs, and it will return
+          a bubble plot for the feature. One can see the relationship of
+          the feature and the popularity of the songs."),
+        selectInput(
+          "feature",
+          label = "Feature of the Song",
+          choices = features
+        )
+      ),
+      mainPanel(
+        plotlyOutput("feature_bubble")
+    )
+    )
   )
 ))
+
