@@ -13,7 +13,7 @@ source("api_key.R")
 # first parameter: the name of your spotify application
 # second parameter: your Client ID, set this in your own api_key.R
 # third parameter: your Secret Client, set this in your own api_key.R
-keys <- spotifyOAuth("Song Analysis", client_id, client_secret)
+keys <- spotifyOAuth(app_id, client_id, client_secret)
 
 # get features for songs in the playlist
 get_playlist_features <- function(playlist_user, playlist_ID) {
