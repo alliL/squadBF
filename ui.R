@@ -4,14 +4,14 @@ library(dplyr)
 
 colors <- list("Pink" = "#F9766E", "Blue" = "#619DFF", "Green" = "#01BA38")
 features <- c(
-  "popularity", "danceability", "energy", "key", "loudness", "mode", 
+  "popularity", "danceability", "energy", "key", "loudness", "mode",
   "speechiness", "acousticness", "instrumentalness", "liveness", "valence",
   "tempo", "duration_ms"
 )
 
 shinyUI(navbarPage(
   "Spotify Playlist Analysis",
-  
+
   # Create a tab panel for scatter plot
   tabPanel(
     "Home",
@@ -21,10 +21,11 @@ shinyUI(navbarPage(
       )
     ),
     fluidPage(
-      img(
-        "",
-        src = "https://media.tenor.com/images/815e1f3a5302d410759b588408461f0a/tenor.gif"
-      )
+      p("Using the",
+        a("Rspotify",
+          href = "https://www.r-bloggers.com/my-new-r-package/"
+        ), "package to access Spotify API, we were able to analyze Spotify 
+        playlists, artists, and features. Here is a list of song features:")
     )
   ),
 
@@ -42,11 +43,7 @@ shinyUI(navbarPage(
       # Side panel for controls
       sidebarPanel(
         style = "position:fixed;width:300px;color:cadetblue",
-        
-        # Add a select input for the x variable
-        p("The following graph shows a comparison of the US top 50 songs and
-          the global top 50 songs."),
-        
+
         # Add a select input for the x variable
         selectInput(
           "x_var",
@@ -65,20 +62,29 @@ shinyUI(navbarPage(
 
       # Create main panel to display scatter plot
       mainPanel(
+        p(
+          "The following graph lets you compare attributes of the",
+          a("US Top 50",
+            href = "https://open.spotify.com/user/spotifycharts/playlist/37i9dQZEVXbLRQDuF5jeBp"
+          ), "playlist and the", a("Global Top 50",
+            href = "https://open.spotify.com/user/spotifycharts/playlist/37i9dQZEVXbMDoHDwVN2tF"
+          ), "playlist."
+        ),
+
         plotlyOutput("us_global")
       )
     )
-  ), 
-  
+  ),
+
   # Create a tabPanel to show bar plot
   tabPanel(
     "About Us",
     titlePanel(
-      h1("Meet the Team????",
-         style = "color:cadetblue;"
+      h1("Meet the Team",
+        style = "color:cadetblue;"
       )
     ),
-    
+
     fluidPage(
       h3("Allison Lee"),
       h3("Brian Luu"),
