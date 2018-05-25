@@ -36,3 +36,4 @@ shinyServer(function(input, output) {
       )
   })
 })
+
