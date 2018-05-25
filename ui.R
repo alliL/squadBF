@@ -79,30 +79,12 @@ shinyUI(navbarPage(
     )
   ), 
   
-  # Create a tabPanel to show bar plot
-  tabPanel(
-    "About Us",
-    titlePanel(
-      h1("Meet the Team????",
-         style = "color:cadetblue;"
-      )
-    ),
-    
-    fluidPage(
-      h3("Allison Lee"),
-      h3("Brian Luu"),
-      h3("Tiffany Truong"),
-      h3("Maggie Wang"),
-      h3("Kiley Wong")
-    )
-  ),
-  
   tabPanel(
     "Feature v.s. Popularity",
     titlePanel(
-               h1("Feature of Song and its relationship to Popularity",
-                  style = "color:cadetblue;padding-bottom:20px"
-               )),
+      h1("Feature of Song and its relationship to Popularity",
+         style = "color:cadetblue;padding-bottom:20px"
+      )),
     sidebarLayout(
       sidebarPanel(
         style = "position:fixed;width:300px;color:cadetblue",
@@ -114,11 +96,28 @@ shinyUI(navbarPage(
           label = "Feature of the Song",
           choices = features
         )
-      ),
+        ),
       mainPanel(
         plotlyOutput("feature_bubble")
+      )
     )
+),
+  
+  # Create a tabPanel to show bar plot
+  tabPanel(
+    "About Us",
+    titlePanel(
+      h1("Meet the Team",
+         style = "color:cadetblue;"
+      )
+    ),
+    
+    fluidPage(
+      h3("Allison Lee"),
+      h3("Brian Luu"),
+      h3("Tiffany Truong"),
+      h3("Maggie Wang"),
+      h3("Kiley Wong")
     )
   )
 ))
-
