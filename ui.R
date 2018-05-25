@@ -4,6 +4,7 @@ library(dplyr)
 
 colors <- list("Pink" = "#F9766E", "Blue" = "#619DFF", "Green" = "#01BA38")
 features <- list(
+  "Popularity" = "popularity",
   "Danceability" = "danceability",
   "Energy" = "energy",
   "Key" = "key",
@@ -30,11 +31,13 @@ shinyUI(navbarPage(
       )
     ),
     fluidPage(
-      p("Using the",
+      p(
+        "Using the",
         a("Rspotify",
           href = "https://www.r-bloggers.com/my-new-r-package/"
         ), "package to access Spotify API, we were able to analyze Spotify 
-        playlists, artists, and features. Here is a list of song features:")
+        playlists, artists, and features. Here is a list of song features:"
+      )
     )
   ),
 
@@ -84,6 +87,31 @@ shinyUI(navbarPage(
       )
     )
   ),
+  
+  tabPanel(
+    "Feature v.s. Popularity",
+    titlePanel(
+      h1("Feature of Song and its relationship to Popularity",
+         style = "color:cadetblue;padding-bottom:20px"
+      )
+    ),
+    sidebarLayout(
+      sidebarPanel(
+        style = "position:fixed;width:300px;color:cadetblue",
+        p("Select the interest of feature of songs, and it will return
+          a bubble plot for the feature. One can see the relationship of
+          the feature and the popularity of the songs."),
+        selectInput(
+          "feature",
+          label = "Feature of the Song",
+          choices = features
+        )
+      ),
+      mainPanel(
+        plotlyOutput("feature_bubble")
+      )
+    )
+  ), 
 
   # Create a tabPanel to show bar plot
   tabPanel(
@@ -101,30 +129,5 @@ shinyUI(navbarPage(
       h3("Maggie Wang"),
       h3("Kiley Wong")
     )
-  ),
-  
-  tabPanel(
-    "Feature v.s. Popularity",
-    titlePanel(
-               h1("Feature of Song and its relationship to Popularity",
-                  style = "color:cadetblue;padding-bottom:20px"
-               )),
-    sidebarLayout(
-      sidebarPanel(
-        style = "position:fixed;width:300px;color:cadetblue",
-        p("Select the interest of feature of songs, and it will return
-          a bubble plot for the feature. One can see the relationship of
-          the feature and the popularity of the songs."),
-        selectInput(
-          "feature",
-          label = "Feature of the Song",
-          choices = features
-        )
-      ),
-      mainPanel(
-        plotlyOutput("feature_bubble")
-    )
-    )
   )
 ))
-
