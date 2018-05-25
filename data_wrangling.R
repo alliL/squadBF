@@ -13,7 +13,7 @@ source("api_key.R")
 # first parameter: the name of your spotify application
 # second parameter: your Client ID, set this in your own api_key.R
 # third parameter: your Secret Client, set this in your own api_key.R
-keys <- spotifyOAuth("Song Analysis", client_id, client_secret)
+keys <- spotifyOAuth(app_id, client_id, client_secret)
 
 # get features for songs in the playlist
 get_playlist_features <- function(playlist_user, playlist_ID) {
@@ -22,16 +22,18 @@ get_playlist_features <- function(playlist_user, playlist_ID) {
   
   # get playlist features
   raw_playlist_features <- list()
+
   for (row_num in 1:nrow(playlist)) {
     song <- playlist[row_num, ]$id
     raw_playlist_features[[row_num]] <- getFeatures(song, token=keys)
   }
+
   playlist_features_only = do.call(rbind, raw_playlist_features)
   
   # combine playlist and playlist features
-  playlist <- full_join(playlist, playlist_features_only)
-  return(playlist)
+  full_join(playlist, playlist_features_only)
 }
+<<<<<<< HEAD
 
 # Some playlist examples to get started.
 # To get the "playlist user" and "playlist ID", right click on a spotify
@@ -44,3 +46,5 @@ global_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbMDoHDwVN2tF"
 =======
 top_tracks_2017 <- get_playlist_features("spotify", "37i9dQZF1DX5nwnRMcdReF")
 >>>>>>> 13761d7b64bf5148671b1a5c619ba80c39a9353f
+=======
+>>>>>>> 42f99d1f9c9ff057c78a5d130938039e1e1d9ae0
