@@ -12,7 +12,7 @@ features <- list(
   "Mode" = "mode",
   "Speechiness" = "speechiness",
   "Acousticness" = "acousticness",
-  "Instrumentalness" = "instrumenalness",
+  "Instrumentalness" = "instrumentalness",
   "Liveness" = "liveness",
   "Valence" = "valence",
   "Tempo" = "tempo",
@@ -109,10 +109,39 @@ shinyUI(navbarPage(
         )
         ),
       mainPanel(
-        plotlyOutput("feature_bubble")
+        plotlyOutput("feature_bubble"),
+        p(style = "position:fixed;width:300px;color:cadetblue"
       )
     )
-  ), 
+  )),
+  
+  tabPanel(
+    "Analysis",
+    h1("What do we learn from the relationship of feature versus popularity?",
+       style = "color:cadetblue;padding-bottom:20px"
+    ),
+    fluidPage(
+      p(
+        "When selecting feature and see its relationship with popularity,
+        one can see that most of the features don't really affect popularity
+        except one feature, ", strong("ENERGY.")),
+      p("From selecting the feature", strong("ENERGY."),
+        "we are able to see that most of the song with higher popularity has higher energy."),
+      p("However, when selecting", span(strong("popularity")),
+        ", we can see that there is an outlier, which is form artist", span(strong("A$AP Rocky."))),
+      img(src = "https://images.genius.com/0635bd3f246cb6af9c8aa48a06263c39.1000x1000x1.jpg",
+          height = 200, width = 200, align = "middle"),
+      p("Then we dig into the data we got from spotify, seeing that there are 2 songs from the same
+        artist with 0 popularity. There is obviously a problem with the data."),
+      p("First of all, since it says on", a("Spotify website", href = "https://open.spotify.com/artist/13ubrt8QOOCPljQ2FL1Kca/about"),
+        "that there are listeners from different areas every month, it is impossible that the popularity
+        of this artist is", strong("zero.")),
+      p("Second of all, if the artist's popularity in Spotify's data is zero,
+        how come it gets in Global Top 50 soundtrack provided by Spotify?"),
+      p("This is an important issue for us to think about, and to rethink the credibility
+        of Spoify.")
+      )
+    ),
   
   # Create a tabPanel to show bar plot
   tabPanel(
