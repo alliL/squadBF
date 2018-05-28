@@ -27,10 +27,16 @@ shinyUI(navbarPage(
     "Home",
     titlePanel(
       h1("What can we learn using the Spotify API?",
+        align = "center",
         style = "color:cadetblue;padding-bottom:20px"
       )
     ),
     fluidPage(
+      img(
+        "",
+        src = 
+          "https://www.purplepandamedia.com/wp-content/uploads/2015/03/spotify-1.jpg"
+      ),
       p(
         "Using the",
         a("Rspotify",

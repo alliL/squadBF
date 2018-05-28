@@ -34,7 +34,7 @@ bubble_plot <- function(feature){
   return(p)
 }
 
-
+# US global popularity vs feature
 shinyServer(function(input, output) {
   output$us_global <- renderPlotly({
     x <- input$x_var
@@ -63,4 +63,3 @@ shinyServer(function(input, output) {
     return(bubble_plot(input$feature))
   })
 })
-
