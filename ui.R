@@ -27,10 +27,16 @@ shinyUI(navbarPage(
     "Home",
     titlePanel(
       h1("What can we learn using the Spotify API?",
+        align = "center",
         style = "color:cadetblue;padding-bottom:20px"
       )
     ),
     fluidPage(
+      img(
+        "",
+        src = 
+          "https://www.purplepandamedia.com/wp-content/uploads/2015/03/spotify-1.jpg"
+      ),
       p(
         "Using the",
         a("Rspotify",
@@ -184,27 +190,5 @@ shinyUI(navbarPage(
         and enjoy eating and exploring!")
     )
     ) 
-  # tabPanel(
-  #     "Searching",
-  #     titlePanel(
-  #       h1("Type Something",
-  #          style = "color:cadetblue;"
-  #       ),
-  #       sidebarLayout(
-  #         sidebarPanel(
-  #           selectInput(
-  #             inputId = "id", 
-  #             label = "Enter your search :",
-  #             choices = 
-  #             # placeholder = "This is a placeholder" 
-  #             # btnSearch = icon("search"), 
-  #             # btnReset = icon("remove"), 
-  #             # width = "100%"
-  #             )
-  #           )
-  #       )
-  #     )
-  # )
-  
-  
+
 ))
