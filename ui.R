@@ -153,11 +153,58 @@ shinyUI(navbarPage(
     ),
 
     fluidPage(
+      p("The project that we were working on is to show that we have a god understanding of the r program.
+        We are trying show that we are able to create a shiny application that uses a dataset of our choice.
+        The data set that we have chosen to use is the Rspotify API. We are using data from spotify and we are
+        using that to show differnt visualizations of the data."),
       h3("Allison Lee"),
+      img(src = "https://i.pinimg.com/736x/31/c3/4f/31c34f9fefbb06074c45434b543f6e11--too-cute-puppies-puppies-cutest.jpg",
+          height = 200, width = 200, align = "middle"),
+      p("Hi! I am currently a sophomore at the Universrity of Washington Seattle. My intended major 
+        is informatics and I am originally from Honolulu, Hawaii. I enjoy all kinds of food and I think 
+        that data structures and information is a big part of the evolving world."),
       h3("Brian Luu"),
+      img(src = "http://barkingroyalty.com/wp-content/uploads/2015/12/pomeraninan-puppy.jpg?x30644.jpg",
+          height = 200, width = 200, align = "middle"),
+      p("Hello, I am a freshman at the University of Washington Seattle and a direct admit ot the
+        Information School, majoring in informatics. Hit me up on slack @Brian Luu!"),
       h3("Tiffany Truong"),
+      img(src = "https://i.redd.it/51p5c1efueoy.jpg",
+          height = 200, width = 200, align = "middle"),
+      p("HI!! I am currently a freshman at the University of Washington Seattle. I am undecided on what I would like 
+        to pursue as a major at this time, but I do have an interest in informatics."),
       h3("Maggie Wang"),
-      h3("Kiley Wong")
+      img(src = "https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2016/07/Dachshund-600x600.jpg",
+          height = 200, width = 200, align = "middle"),
+      h3("Kiley Wong"),
+      img(src = "http://www.dogster.com/wp-content/uploads/2016/01/what-age-do-puppies-lose-their-teeth.jpg",
+          height = 200, width = 200, align = "middle"),
+      p("Hi hi! I am a shophomore at the University Washington Seattle. My intended major is either
+        Informatics or Human Centered Design and Engineering. I am originally from Southern California
+        and enjoy eating and exploring!")
     )
-  )
+    ) 
+  # tabPanel(
+  #     "Searching",
+  #     titlePanel(
+  #       h1("Type Something",
+  #          style = "color:cadetblue;"
+  #       ),
+  #       sidebarLayout(
+  #         sidebarPanel(
+  #           selectInput(
+  #             inputId = "id", 
+  #             label = "Enter your search :",
+  #             choices = 
+  #             # placeholder = "This is a placeholder" 
+  #             # btnSearch = icon("search"), 
+  #             # btnReset = icon("remove"), 
+  #             # width = "100%"
+  #             )
+  #           )
+  #       )
+  #     )
+  # )
+  
+  
 ))
