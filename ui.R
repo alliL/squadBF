@@ -159,7 +159,7 @@ shinyUI(navbarPage(
     ),
 
     fluidPage(
-      p("The project that we were working on is to show that we have a god understanding of the r program.
+      p("The project that we were working on is to show that we have a good understanding of the r program.
         We are trying show that we are able to create a shiny application that uses a dataset of our choice.
         The data set that we have chosen to use is the Rspotify API. We are using data from spotify and we are
         using that to show differnt visualizations of the data."),
@@ -180,8 +180,10 @@ shinyUI(navbarPage(
       p("HI!! I am currently a freshman at the University of Washington Seattle. I am undecided on what I would like 
         to pursue as a major at this time, but I do have an interest in informatics."),
       h3("Maggie Wang"),
-      img(src = "https://gfp-2a3tnpzj.stackpathdns.com/wp-content/uploads/2016/07/Dachshund-600x600.jpg",
+      img(src = "http://vomglockkennel.com/wp-content/gallery/glockqgallery/8.jpg",
           height = 200, width = 200, align = "middle"),
+      p("Helloo! I am a sophomore at UW-Seattle, and I'm a Communications major with Informatics minor!
+        I'm from Taiwan and I love long coat German Shepards!"),
       h3("Kiley Wong"),
       img(src = "http://www.dogster.com/wp-content/uploads/2016/01/what-age-do-puppies-lose-their-teeth.jpg",
           height = 200, width = 200, align = "middle"),
