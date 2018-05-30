@@ -116,9 +116,15 @@ shinyUI(navbarPage(
           the feature, energy, and the popularity of the songs."),
         selectInput(
           "feature",
-          label = "Feature of the Song",
+          label = "X Variable",
           choices = features,
           selected = "key"
+        ),
+        selectInput(
+          "feature2",
+          label = "Y Variable",
+          choices = features,
+          selected = "energy"
         )
       ),
       mainPanel(

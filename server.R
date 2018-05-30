@@ -19,8 +19,8 @@ feature_descriptions <- read.csv("data/feature_descriptions.csv")
 # Make function which takes in audio features from "global_top_50"
 # and shows a bubble chart the artists, track names, popularity, and selected feature.
 # Set color and size of the bubbles by popularity.
-bubble_plot <- function(feature){
-  p <- plot_ly(global_top_50, x = ~get(feature), y = ~energy,
+bubble_plot <- function(feature, feature2){
+  p <- plot_ly(global_top_50, x = ~get(feature), y = ~get(feature2),
                color = ~popularity,
                colors = "Set3", size = ~popularity,
                type = "scatter", mode = "markers",
@@ -29,17 +29,18 @@ bubble_plot <- function(feature){
                text = ~paste0("Artist: ", artist, "<br>Track: ", tracks,
                               "<br>Popularity: ", popularity,
                               "<br>", capitalize(feature), ": ",
-                              get(feature))) %>%
+                              get(feature),capitalize(feature2), ": ",
+                              get(feature2))) %>%
     layout(title = paste0(capitalize(feature), " vs Popularity of Global Top 50 Songs"),
            margin = list(l = 150, r = 10, b = 30, t = 30),
            xaxis = list(title = capitalize(feature), showgrid = FALSE),
-           yaxis = list(title = "Energy", showgrid = FALSE))
+           yaxis = list(title = capitalize(feature2), showgrid = FALSE))
   return(p)
 }
 
 # US top 50 popularity vs feature
-us_bubble_plot <- function(feature){
-  p <- plot_ly(US_top_50, x = ~get(feature), y = ~energy,
+us_bubble_plot <- function(feature, feature2){
+  p <- plot_ly(US_top_50, x = ~get(feature), y = ~get(feature2),
                color = ~popularity,
                colors = "Set3", size = ~popularity,
                type = "scatter", mode = "markers",
@@ -48,11 +49,12 @@ us_bubble_plot <- function(feature){
                text = ~paste0("Artist: ", artist, "<br>Track: ", tracks,
                               "<br>Popularity: ", popularity,
                               "<br>", capitalize(feature), ": ",
-                              get(feature))) %>%
+                              get(feature), capitalize(feature2), ": ",
+                              get(feature2))) %>%
     layout(title = paste0(capitalize(feature), " vs Popularity of US Top 50 Songs"),
            margin = list(l = 150, r = 10, b = 30, t = 30),
            xaxis = list(title = capitalize(feature), showgrid = FALSE),
-           yaxis = list(title = "Energy", showgrid = FALSE)) 
+           yaxis = list(title = capitalize(feature2), showgrid = FALSE)) 
   return(p)
 }
 
@@ -85,15 +87,11 @@ shinyServer(function(input, output) {
   output$feature_descriptions <- renderTable(feature_descriptions)
 
   output$feature_bubble <- renderPlotly({
-    return(bubble_plot(input$feature))
+    return(bubble_plot(input$feature, input$feature2))
   })
   
   output$US_plot <- renderPlotly({
-    return(us_bubble_plot(input$feature))
-  })
-  
-  output$hi_plot <- renderPlotly({
-    return(random_plot(input$feature))
+    return(us_bubble_plot(input$feature, input$feature2))
   })
 
 })
