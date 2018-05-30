@@ -86,10 +86,11 @@ shinyServer(function(input, output) {
 
     plot_ly(
       data = data, type = "scatter", mode = "markers", x = ~ data[[x]],
-      y = ~ data[[y]], color = ~ type,
+      y = ~ data[[y]], color = ~ type, colors = "Set1",
       text = paste0(data$tracks, ", ", data$artist_full, "<br />", data$type)
     ) %>%
       layout(
+        title = "US Top 50 Playlist v.s. Global Top 50 Playlist",
         xaxis = list(title = x),
         yaxis = list(title = y)
       )

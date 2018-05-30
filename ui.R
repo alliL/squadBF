@@ -71,7 +71,7 @@ shinyUI(
           "x_var",
           label = "X Variable",
           choices = features,
-          selected = "popularity"
+          selected = "loudness"
         ),
         
         
@@ -80,7 +80,7 @@ shinyUI(
           "y_var",
           label = "Y Variable",
           choices = features,
-          selected = "danceability"
+          selected = "speechiness"
         )
       ),
 
@@ -101,9 +101,9 @@ shinyUI(
 
   # Tab for feature vs popularity
   tabPanel(
-    "Feature of Songs",
+    "Features of Songs",
     titlePanel(
-      h1("Feature of Song and its Relationship",
+      h1("Comparing Features of Songs to Popularity",
         style = "color:cadetblue;padding-bottom:20px"
       )
     ),
@@ -138,8 +138,17 @@ shinyUI(
 
   # Tab for analysis of data and findings
   tabPanel(
-    "Analysis",
-    h1("What do we learn from the relationship of feature versus popularity?",
+    "Graph Analysis",
+    h1("What do we learn from US Top 50 v.s. Global Top 50?",
+       style = "color:cadetblue;padding-bottom:20px"),
+    img(src = "us_global.png"),
+    p("This graph represents the playlists of the US Top 50 songs and Global 
+      Top 50 songs on May 30, 2018. By looking at the relationship between 
+      spechiness (presence of spoken words) and loudness (amplitude in 
+      decibels) of these two playlists, we notice a grouping here. The top 50
+      songs in the United States tend to be more 'speechy' than global top 50
+      songs which are more loud than songs in the US playlist." ),
+    h1("What do we learn from the relationship of features versus popularity?",
       style = "color:cadetblue;padding-bottom:20px"
     ),
     fluidPage(
