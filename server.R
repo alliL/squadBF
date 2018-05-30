@@ -56,6 +56,15 @@ us_bubble_plot <- function(feature){
   return(p)
 }
 
+# Search for an artist
+search_Artists <- function(words) {
+  artistName <- words
+  searching <- searchArtist(artistName, token = keys)
+  new_data <- searching %>%
+    select(display_name, popularity, followers, genres)
+  return(new_data)
+}
+
 shinyServer(function(input, output) {
   # US top 50 vs. Global top 50
   output$us_global <- renderPlotly({
@@ -95,5 +104,13 @@ shinyServer(function(input, output) {
   output$hi_plot <- renderPlotly({
     return(random_plot(input$feature))
   })
+  
+  # Display the text search widget
+  output$value <- renderPrint({input$text })
+  
+  output$searchArtists <- renderTable({
+    return(search_Artists(input$text))
+  })
+    
 
 })

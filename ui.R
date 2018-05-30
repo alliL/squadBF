@@ -172,6 +172,29 @@ shinyUI(navbarPage(
         think about, and also to rethink the credibility of Spotify.")
     )
   ),
+  
+  tabPanel(
+    "Search Artists",
+    titlePanel(
+      h1("Search Your Favorite Artists!",
+         style = "color:cadetblue;"
+      )
+    ),
+      sidebarLayout(
+        sidebarPanel(
+          style = "position:fixed;width:300px;color:cadetblue",
+          p("For the following, type your favorite artist. If there are spaces in the name
+            use a '+' symbol"),
+          #Search an artists first and last name
+          textInput("text", label = h3("Text input"), value = "Regina+Spektor")
+          ),
+        mainPanel(
+          p("Here you can search your favorite artists and see information about their music
+            and popularity on Spotify."),
+          tableOutput("searchArtists")
+          )
+        )
+  ),
 
   # Tab for about the project makers
   tabPanel(
