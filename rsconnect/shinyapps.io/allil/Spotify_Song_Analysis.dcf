@@ -1,0 +1,12 @@
+name: Spotify_Song_Analysis
+title: Spotify_Song_Analysis
+username:
+account: allil
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 351384
+bundleId: 1401304
+url: https://allil.shinyapps.io/Spotify_Song_Analysis/
+when: 1527712067.64761
+asMultiple: FALSE
+asStatic: FALSE

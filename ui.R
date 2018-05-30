@@ -44,7 +44,10 @@ shinyUI(
       p("Using the",
         a("Rspotify",
           href = "https://www.r-bloggers.com/my-new-r-package/"
-        ), "package to access Spotify API, we were able to analyze Spotify
+        ), "package to access",
+        a("Spotify API",
+          href = "https://developer.spotify.com/documentation/web-api/"
+        ), "we were able to analyze Spotify
         playlists, artists, and features. Here is a list of song features:"
       ),
       tableOutput("feature_descriptions")
