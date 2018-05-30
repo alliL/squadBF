@@ -114,8 +114,8 @@ shinyUI(
       sidebarPanel(
         style = "position:fixed;width:300px;color:cadetblue",
         p("Select the interest of feature of songs, and it will return
-          a bubble plot for the feature. One can see the relationship of
-          the feature, energy, and the popularity of the songs."),
+          a bubble plot for the feature. One can see the comparison of features
+          , and compare betwwen Global chart and US chart."),
         selectInput(
           "feature",
           label = "X Variable",
