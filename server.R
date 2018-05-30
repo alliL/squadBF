@@ -22,7 +22,7 @@ feature_descriptions <- read.csv("data/feature_descriptions.csv")
 bubble_plot <- function(feature, feature2){
   p <- plot_ly(global_top_50, x = ~get(feature), y = ~get(feature2),
                color = ~popularity,
-               colors = "Set3", size = ~popularity,
+               colors = "Greens", size = ~popularity,
                type = "scatter", mode = "markers",
                sizes = c(10, 40), marker = list(opacity = 0.85,
                              sizemode = "diameter"), hoverinfo = "text",
