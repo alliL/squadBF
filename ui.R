@@ -269,7 +269,7 @@ shinyUI(
       ),
       p("Helloo! I am a sophomore at UW-Seattle, and I'm a Communications
         major with Informatics minor!
-        I'm from Taiwan and I love long coat German Shepards!"),
+        I'm from Taiwan and I love dogs!"),
       h3("Kiley Wong"),
       img(
         src = "Kiley.jpg",
