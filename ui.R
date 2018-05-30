@@ -102,9 +102,9 @@ shinyUI(navbarPage(
 
   # Tab for feature vs popularity
   tabPanel(
-    "Feature v.s. Popularity",
+    "Feature of Songs",
     titlePanel(
-      h1("Feature of Song and its relationship to Popularity",
+      h1("Feature of Song and its Relationship",
          style = "color:cadetblue;padding-bottom:20px"
       )
     ),

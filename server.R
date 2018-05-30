@@ -91,5 +91,9 @@ shinyServer(function(input, output) {
   output$US_plot <- renderPlotly({
     return(us_bubble_plot(input$feature))
   })
+  
+  output$hi_plot <- renderPlotly({
+    return(random_plot(input$feature))
+  })
 
 })

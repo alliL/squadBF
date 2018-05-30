@@ -28,7 +28,7 @@ get_playlist_features <- function(playlist_user, playlist_ID) {
     raw_playlist_features[[row_num]] <- getFeatures(song, token = keys)
   }
 
-  playlist_features_only = do.call(rbind, raw_playlist_features)
+  playlist_features_only <- do.call(rbind, raw_playlist_features)
 
   # Combine playlist and playlist features
   full_join(playlist, playlist_features_only)
