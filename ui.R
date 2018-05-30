@@ -159,10 +159,10 @@ shinyUI(navbarPage(
     ),
 
     fluidPage(
-      p("The project that we were working on is to show that we have a god understanding of the r program.
-        We are trying show that we are able to create a shiny application that uses a dataset of our choice.
-        The data set that we have chosen to use is the Rspotify API. We are using data from spotify and we are
-        using that to show differnt visualizations of the data."),
+      p("The project that we were working on is to show people information about spotify.
+        We are using data from Rspotify and we are using that to show differnt visualizations of aspects such 
+        as danceability and popularity. The data that we have chosen is being used to show people statistics
+        and facts about certain songs, and playslists."),
       h3("Allison Lee"),
       img(src = "https://i.pinimg.com/736x/31/c3/4f/31c34f9fefbb06074c45434b543f6e11--too-cute-puppies-puppies-cutest.jpg",
           height = 200, width = 200, align = "middle"),
