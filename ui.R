@@ -1,8 +1,12 @@
+# Load relevant libraries
 library(shiny)
 library(plotly)
 library(dplyr)
 
+# Set default colors
 colors <- list("Pink" = "#F9766E", "Blue" = "#619DFF", "Green" = "#01BA38")
+
+# Feature of Spotify songs
 features <- list(
   "Popularity" = "popularity",
   "Danceability" = "danceability",
@@ -19,10 +23,11 @@ features <- list(
   "Duration (ms)" = "duration_ms"
 )
 
+# Main navigation
 shinyUI(navbarPage(
   "Spotify Playlist Analysis",
 
-  # Create a tab panel for scatter plot
+  # Tab for background info
   tabPanel(
     "Home",
     titlePanel(
@@ -95,6 +100,7 @@ shinyUI(navbarPage(
     )
   ),
 
+  # Tab for feature vs popularity
   tabPanel(
     "Feature v.s. Popularity",
     titlePanel(
@@ -117,11 +123,13 @@ shinyUI(navbarPage(
         ),
       mainPanel(
         plotlyOutput("feature_bubble"),
+        plotlyOutput("US_plot"),
         p(style = "position:fixed;width:300px;color:cadetblue"
       )
     )
   )),
 
+  # Tab for analysis of data and findings
   tabPanel(
     "Analysis",
     h1("What do we learn from the relationship of feature versus popularity?",
@@ -157,7 +165,7 @@ shinyUI(navbarPage(
       )
     ),
 
-  # Create a tabPanel to show bar plot
+  # Tab for about the project makers
   tabPanel(
     "About Us",
     titlePanel(
@@ -212,5 +220,4 @@ shinyUI(navbarPage(
         and enjoy eating and exploring!")
     )
     )
-
 ))
