@@ -8,7 +8,7 @@ source("api_key.R")
 
 # Set credentials for the Spotify API
 # IMPORTANT: set the "Redirect URI". Go to your Spotify application on the
-# web, go to "Edit Settings", and under "Redirect URIs", type 
+# web, go to "Edit Settings", and under "Redirect URIs", type
 # "http://localhost:1410/"
 # First parameter: the name of your spotify application
 # Second parameter: your Client ID, set this in your own api_key.R
@@ -33,4 +33,3 @@ get_playlist_features <- function(playlist_user, playlist_ID) {
   # Combine playlist and playlist features
   full_join(playlist, playlist_features_only)
 }
-

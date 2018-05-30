@@ -5,8 +5,8 @@ account: allil
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 351384
-bundleId: 1401304
+bundleId: 1401537
 url: https://allil.shinyapps.io/Spotify_Song_Analysis/
-when: 1527712067.64761
+when: 1527718347.96
 asMultiple: FALSE
 asStatic: FALSE
