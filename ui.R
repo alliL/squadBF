@@ -1,5 +1,6 @@
 # Load relevant libraries
 library(shiny)
+library(shinythemes)
 library(plotly)
 library(dplyr)
 
@@ -24,9 +25,9 @@ features <- list(
 )
 
 # Main navigation
-shinyUI(navbarPage(
+shinyUI(
+  navbarPage(theme = shinytheme("sandstone"),
   "Spotify Playlist Analysis",
-
   # Tab for background info
   tabPanel(
     "Home",
@@ -37,13 +38,10 @@ shinyUI(navbarPage(
       )
     ),
     fluidPage(
-      img(
-        "",
-        src =
+      img("", src =
           "https://goo.gl/UUhG58"
-      ),
-      p(
-        "Using the",
+      ), style="text-align: center;",
+      p("Using the",
         a("Rspotify",
           href = "https://www.r-bloggers.com/my-new-r-package/"
         ), "package to access Spotify API, we were able to analyze Spotify
@@ -84,13 +82,11 @@ shinyUI(navbarPage(
           choices = features,
           selected = "danceability"
         )
-   
       ),
 
       # Create main panel to display scatter plot
       mainPanel(
-        p(
-          "The following graph lets you compare attributes of the",
+        p("The following graph lets you compare attributes of the",
           a("US Top 50",
             href = "https://goo.gl/nkp9RD"
           ), "playlist and the", a("Global Top 50",
@@ -132,7 +128,9 @@ shinyUI(navbarPage(
       ),
       mainPanel(
         plotlyOutput("feature_bubble"),
+        br(), br(), br(),
         plotlyOutput("US_plot"),
+        br(), br(), br(),
         p(style = "position:fixed;width:300px;color:cadetblue")
       )
     )
@@ -195,7 +193,7 @@ shinyUI(navbarPage(
           p("For the following, type your favorite artist. If there are spaces in the name
             use a '+' symbol"),
           #Search an artists first and last name
-          textInput("text", label = h3("Text input"), value = "Regina+Spektor")
+          textInput("text", label = h3("Type an Artist"), value = "Regina+Spektor")
           ),
         mainPanel(
           p("Here you can search your favorite artists and see information about their music
@@ -217,8 +215,8 @@ shinyUI(navbarPage(
 
     fluidPage(
       p("The project that we were working on is to show people information
-        about spotify.We are using data from Rspotify and we are using that
-        to show differnt visualizations of aspects such as danceability and
+        about spotify. We are using data from Rspotify and we are using that
+        to show different visualizations of aspects such as danceability and
         popularity. The data that we have chosen is being used to show people
         statistics and facts about certain songs, and playslists."),
       h3("Allison Lee"),
@@ -237,7 +235,7 @@ shinyUI(navbarPage(
         height = 200, width = 200, align = "middle"
       ),
       p("Hello, I am a freshman at the University of Washington Seattle and
-        a direct admit ot the Information School,
+        a direct admit to the Information School,
         majoring in informatics.
         Hit me up on slack @Brian Luu!"),
       h3("Tiffany Truong"),

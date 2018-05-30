@@ -29,9 +29,10 @@ bubble_plot <- function(feature, feature2){
                text = ~paste0("Artist: ", artist, "<br>Track: ", tracks,
                               
                               "<br>", capitalize(feature), ": ",
-                              get(feature),capitalize(feature2), ": ",
+                              get(feature), "<br>", capitalize(feature2), ": ",
                               get(feature2))) %>%
-    layout(title = paste0(capitalize(feature), " vs Popularity of Global Top 50 Songs"),
+    layout(title = paste0(capitalize(feature), " vs ", capitalize(feature2), 
+                          " of Global Top 50 Songs"),
            margin = list(l = 150, r = 10, b = 30, t = 30),
            xaxis = list(title = capitalize(feature), showgrid = FALSE),
            yaxis = list(title = capitalize(feature2), showgrid = FALSE))
@@ -40,18 +41,20 @@ bubble_plot <- function(feature, feature2){
 
 # US top 50 popularity vs feature
 us_bubble_plot <- function(feature, feature2){
+
   p <- plot_ly(US_top_50, x = ~get(feature), y = ~get(feature2),
                color = ~popularity,
-               colors = "Set3", size = ~popularity,
+               colors = "Blues", size = ~popularity,
                type = "scatter", mode = "markers",
+            
                sizes = c(10, 40), marker = list(opacity = 0.85,
                                                 sizemode = "diameter"), hoverinfo = "text",
                text = ~paste0("Artist: ", artist, "<br>Track: ", tracks,
-                              "<br>Popularity: ", popularity,
                               "<br>", capitalize(feature), ": ",
-                              get(feature), capitalize(feature2), ": ",
+                              get(feature), "<br>", capitalize(feature2), ": ",
                               get(feature2))) %>%
-    layout(title = paste0(capitalize(feature), " vs Popularity of US Top 50 Songs"),
+    layout(title = paste0(capitalize(feature), " vs ", capitalize(feature2), 
+                          " of US Top 50 Songs"),
            margin = list(l = 150, r = 10, b = 30, t = 30),
            xaxis = list(title = capitalize(feature), showgrid = FALSE),
            yaxis = list(title = capitalize(feature2), showgrid = FALSE)) 
@@ -62,9 +65,9 @@ us_bubble_plot <- function(feature, feature2){
 search_Artists <- function(words) {
   artistName <- words
   searching <- searchArtist(artistName, token = keys)
-  new_data <- searching %>%
-    select(display_name, popularity, followers, genres)
-  return(new_data)
+  # new_data <- searching %>%
+  #   select(display_name, popularity, followers, genres)
+  return(searching)
 }
 
 shinyServer(function(input, output) {
@@ -104,9 +107,12 @@ shinyServer(function(input, output) {
   })
   
   # Display the text search widget
-  output$value <- renderPrint({input$text })
-  
+  output$value <- renderPrint({
+    req(input$text)
+  })
+    
   output$searchArtists <- renderTable({
+
     return(search_Artists(input$text))
   })
     
