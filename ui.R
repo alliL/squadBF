@@ -113,12 +113,18 @@ shinyUI(navbarPage(
         style = "position:fixed;width:300px;color:cadetblue",
         p("Select the interest of feature of songs, and it will return
           a bubble plot for the feature. One can see the relationship of
-          the feature and the popularity of the songs."),
+          the feature, energy, and the popularity of the songs."),
         selectInput(
           "feature",
-          label = "Feature of the Song",
+          label = "X Variable",
           choices = features,
-          selected = "popularity"
+          selected = "key"
+        ),
+        selectInput(
+          "feature2",
+          label = "Y Variable",
+          choices = features,
+          selected = "energy"
         )
       ),
       mainPanel(
@@ -201,7 +207,8 @@ shinyUI(navbarPage(
     "About Us",
     titlePanel(
       h1("Meet the Team",
-        style = "color:cadetblue;"
+        style = "color:cadetblue;",
+        align = "center"
       )
     ),
 
@@ -213,7 +220,7 @@ shinyUI(navbarPage(
         statistics and facts about certain songs, and playslists."),
       h3("Allison Lee"),
       img(
-        src = "https://goo.gl/2yFojM",
+        src = "Allison.png",
         height = 200, width = 200, align = "middle"
       ),
       p("Hi! I am currently a sophomore at the Universrity of Washington
@@ -223,7 +230,7 @@ shinyUI(navbarPage(
         evolving world."),
       h3("Brian Luu"),
       img(
-        src = "https://goo.gl/ARN77o",
+        src = "Brian.jpg",
         height = 200, width = 200, align = "middle"
       ),
       p("Hello, I am a freshman at the University of Washington Seattle and
@@ -232,7 +239,7 @@ shinyUI(navbarPage(
         Hit me up on slack @Brian Luu!"),
       h3("Tiffany Truong"),
       img(
-        src = "https://i.redd.it/51p5c1efueoy.jpg",
+        src = "Tiffany.jpg",
         height = 200, width = 200, align = "middle"
       ),
       p("HI!! I am currently a freshman at the University of Washington
@@ -241,15 +248,15 @@ shinyUI(navbarPage(
         but I do have an interest in informatics."),
       h3("Maggie Wang"),
       img(
-        src = "https://goo.gl/UEtUJr",
-        height = 200, width = 200, align = "middle"
+        src = "Maggie.jpg",
+        height = 270, width = 200, align = "middle"
       ),
       p("Helloo! I am a sophomore at UW-Seattle, and I'm a Communications
         major with Informatics minor!
         I'm from Taiwan and I love long coat German Shepards!"),
       h3("Kiley Wong"),
       img(
-        src = "https://goo.gl/BWStUh",
+        src = "Kiley.jpg",
         height = 200, width = 200, align = "middle"
       ),
       p("Hi hi! I am a shophomore at the University Washington Seattle.
