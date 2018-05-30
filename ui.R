@@ -113,12 +113,12 @@ shinyUI(navbarPage(
         style = "position:fixed;width:300px;color:cadetblue",
         p("Select the interest of feature of songs, and it will return
           a bubble plot for the feature. One can see the relationship of
-          the feature and the popularity of the songs."),
+          the feature, energy, and the popularity of the songs."),
         selectInput(
           "feature",
           label = "Feature of the Song",
           choices = features,
-          selected = "popularity"
+          selected = "key"
         )
         ),
       mainPanel(

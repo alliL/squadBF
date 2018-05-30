@@ -20,7 +20,7 @@ feature_descriptions <- read.csv("data/feature_descriptions.csv")
 # and shows a bubble chart the artists, track names, popularity, and selected feature.
 # Set color and size of the bubbles by popularity.
 bubble_plot <- function(feature){
-  p <- plot_ly(global_top_50, x = ~get(feature), y = ~artist,
+  p <- plot_ly(global_top_50, x = ~get(feature), y = ~energy,
                color = ~popularity,
                colors = "Set3", size = ~popularity,
                type = "scatter", mode = "markers",
@@ -30,16 +30,16 @@ bubble_plot <- function(feature){
                               "<br>Popularity: ", popularity,
                               "<br>", capitalize(feature), ": ",
                               get(feature))) %>%
-    layout(title = paste0(capitalize(feature), " of Global Top 50 Songs"),
+    layout(title = paste0(capitalize(feature), " vs Popularity of Global Top 50 Songs"),
            margin = list(l = 150, r = 10, b = 30, t = 30),
            xaxis = list(title = capitalize(feature), showgrid = FALSE),
-           yaxis = list(title = "Artist", showgrid = FALSE))
+           yaxis = list(title = "Energy", showgrid = FALSE))
   return(p)
 }
 
 # US top 50 popularity vs feature
 us_bubble_plot <- function(feature){
-  p <- plot_ly(US_top_50, x = ~get(feature), y = ~artist,
+  p <- plot_ly(US_top_50, x = ~get(feature), y = ~energy,
                color = ~popularity,
                colors = "Set3", size = ~popularity,
                type = "scatter", mode = "markers",
@@ -49,10 +49,10 @@ us_bubble_plot <- function(feature){
                               "<br>Popularity: ", popularity,
                               "<br>", capitalize(feature), ": ",
                               get(feature))) %>%
-    layout(title = paste0(capitalize(feature), " of US Top 50 Songs"),
+    layout(title = paste0(capitalize(feature), " vs Popularity of US Top 50 Songs"),
            margin = list(l = 150, r = 10, b = 30, t = 30),
            xaxis = list(title = capitalize(feature), showgrid = FALSE),
-           yaxis = list(title = "Artist", showgrid = FALSE))
+           yaxis = list(title = "Energy", showgrid = FALSE)) 
   return(p)
 }
 
