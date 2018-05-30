@@ -40,7 +40,7 @@ shinyUI(
     fluidPage(
       img("", src =
           "https://goo.gl/UUhG58"
-      ), style="text-align: center;",
+      ), style = "text-align: center;",
       p("Using the",
         a("Rspotify",
           href = "https://www.r-bloggers.com/my-new-r-package/"
@@ -48,9 +48,9 @@ shinyUI(
         a("Spotify API",
           href = "https://developer.spotify.com/documentation/web-api/"
         ), "we were able to analyze Spotify
-        playlists, artists, and features. 
+        playlists, artists, and features.
         This project allows music enthusiasts to look at playslists to see
-        how where their favorite music lies in persepective to other music. 
+        how where their favorite music lies in persepective to other music.
         Here is a list of song features:"
       ),
       tableOutput("feature_descriptions")
@@ -67,7 +67,7 @@ shinyUI(
     ),
     # Create sidebar layout
     sidebarLayout(
-      
+
       # Side panel for controls
       sidebarPanel(
         style = "position:fixed;width:300px;color:cadetblue",
@@ -79,8 +79,8 @@ shinyUI(
           choices = features,
           selected = "loudness"
         ),
-        
-        
+
+
         # Add a select input for the y variable
         selectInput(
           "y_var",
@@ -148,10 +148,10 @@ shinyUI(
     h1("What do we learn from US Top 50 v.s. Global Top 50?",
        style = "color:cadetblue;padding-bottom:20px"),
     HTML('<img src="us_global.PNG"/>'),
-        style="text-align: center;",
-    p("This graph represents the playlists of the US Top 50 songs and Global 
-      Top 50 songs on May 30, 2018. By looking at the relationship between 
-      spechiness (presence of spoken words) and loudness (amplitude in 
+        style = "text-align: center;",
+    p("This graph represents the playlists of the US Top 50 songs and Global
+      Top 50 songs on May 30, 2018. By looking at the relationship between
+      spechiness (presence of spoken words) and loudness (amplitude in
       decibels) of these two playlists, we notice a grouping here. The top 50
       songs in the United States tend to be more 'speechy' than global top 50
       songs which are more loud than songs in the US playlist." ),
@@ -195,7 +195,7 @@ shinyUI(
         think about, and also to rethink the credibility of Spotify.")
     )
   ),
-  
+
   tabPanel(
     "Search Artists",
     titlePanel(
@@ -206,15 +206,15 @@ shinyUI(
       sidebarLayout(
         sidebarPanel(
           style = "position:fixed;width:300px;color:cadetblue",
-          p("For the following, type your favorite artist. If there are spaces in the name
-            use a '+' symbol"),
+          p("For the following, type your favorite artist.
+            If there are spaces in the name use a '+' symbol"),
           #Search an artists first and last name
           textInput("text", label = h3("Type an Artist"),
                     value = "Regina + Spektor")
           ),
         mainPanel(
-          p("Here you can search your favorite artists and see information about their music
-            and popularity on Spotify."),
+          p("Here you can search your favorite artists and see information
+             about their music and popularity on Spotify."),
           tableOutput("searchArtists")
           )
         )
@@ -233,7 +233,7 @@ shinyUI(
     fluidPage(
       p("The project that we made shows information about songs on Spotify.
         Data about the songs are queried using Rspotify and the Spotify API.
-        The visualizations we created show statistics and features about 
+        The visualizations we created show statistics and features about
         playslists. To see how we did this, you can visit our repository:"),
       a("Spotify Song Analysis Repository",
         href = "https://github.com/alliL/squadBF2"),
