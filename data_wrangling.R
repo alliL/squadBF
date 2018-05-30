@@ -19,18 +19,17 @@ keys <- spotifyOAuth(app_id, client_id, client_secret)
 get_playlist_features <- function(playlist_user, playlist_ID) {
   # get playlist
   playlist <- getPlaylistSongs(playlist_user, playlist_ID, token = keys)
-  
+
   # get playlist features
   raw_playlist_features <- list()
 
   for (row_num in 1:nrow(playlist)) {
     song <- playlist[row_num, ]$id
-    raw_playlist_features[[row_num]] <- getFeatures(song, token=keys)
+    raw_playlist_features[[row_num]] <- getFeatures(song, token = keys)
   }
 
   playlist_features_only = do.call(rbind, raw_playlist_features)
-  
+
   # combine playlist and playlist features
   full_join(playlist, playlist_features_only)
 }
-

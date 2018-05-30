@@ -8,11 +8,11 @@ source("data_wrangling.R")
 # Some playlists to get started.
 # To get the "playlist user" and "playlist ID", right click on a spotify
 # playlist and go to 'Share' > 'Copy Spotify URI'
-
 # mood_booster <- get_playlist_features("spotify", "37i9dQZF1DX3rxVfibe1L0")
-US_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbLRQDuF5jeBp")
-global_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbMDoHDwVN2tF")
 # top_tracks_2017 <- get_playlist_features("spotify", "37i9dQZF1DX5nwnRMcdReF")
+US_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbLRQDuF5jeBp")
+global_top_50 <- get_playlist_features("spotifycharts",
+                                       "37i9dQZEVXbMDoHDwVN2tF")
 feature_descriptions <- read.csv("data/feature_descriptions.csv")
 
 # Make function which takes in audio features from "US_top_50"
@@ -21,12 +21,14 @@ feature_descriptions <- read.csv("data/feature_descriptions.csv")
 bubble_plot <- function(feature){
   p <- plot_ly(global_top_50, x = ~get(feature), y = ~artist,
                color = ~popularity,
-               colors = "Set3", size = ~popularity, type = "scatter", mode = "markers",
+               colors = "Set3", size = ~popularity,
+               type = "scatter", mode = "markers",
                sizes = c(10, 40), marker = list(opacity = 0.85,
                              sizemode = "diameter"), hoverinfo = "text",
-               text = ~paste0("Artist: ", artist,"<br>Track: ", tracks,
+               text = ~paste0("Artist: ", artist, "<br>Track: ", tracks,
                               "<br>Popularity: ", popularity,
-                              "<br>", capitalize(feature), ": ", get(feature))) %>%
+                              "<br>", capitalize(feature), ": ",
+                              get(feature))) %>%
     layout(title = paste0(capitalize(feature), " of US Top 50 Songs"),
            margin = list(l = 150, r = 10, b = 30, t = 30),
            xaxis = list(title = capitalize(feature), showgrid = FALSE),
@@ -58,13 +60,11 @@ shinyServer(function(input, output) {
         yaxis = list(title = y)
       )
   })
-  
+
   output$feature_descriptions <- renderTable(feature_descriptions)
-  
+
   output$feature_bubble <- renderPlotly({
     return(bubble_plot(input$feature))
   })
 
 })
-
-
