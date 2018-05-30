@@ -48,7 +48,10 @@ shinyUI(
         a("Spotify API",
           href = "https://developer.spotify.com/documentation/web-api/"
         ), "we were able to analyze Spotify
-        playlists, artists, and features. Here is a list of song features:"
+        playlists, artists, and features. 
+        This project allows music enthusiasts to look at playslists to see
+        how where their favorite music lies in persepective to other music. 
+        Here is a list of song features:"
       ),
       tableOutput("feature_descriptions")
     )
