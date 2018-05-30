@@ -141,7 +141,8 @@ shinyUI(
     "Graph Analysis",
     h1("What do we learn from US Top 50 v.s. Global Top 50?",
        style = "color:cadetblue;padding-bottom:20px"),
-    img(src = "us_global.png"),
+    HTML('<img src="us_global.PNG"/>'),
+        style="text-align: center;",
     p("This graph represents the playlists of the US Top 50 songs and Global 
       Top 50 songs on May 30, 2018. By looking at the relationship between 
       spechiness (presence of spoken words) and loudness (amplitude in 
@@ -202,7 +203,8 @@ shinyUI(
           p("For the following, type your favorite artist. If there are spaces in the name
             use a '+' symbol"),
           #Search an artists first and last name
-          textInput("text", label = h3("Type an Artist"), value = "Regina+Spektor")
+          textInput("text", label = h3("Type an Artist"),
+                    value = "Regina + Spektor")
           ),
         mainPanel(
           p("Here you can search your favorite artists and see information about their music
