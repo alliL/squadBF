@@ -1,32 +1,54 @@
+# Load relevant libraries
 library(shiny)
 library(plotly)
 library(dplyr)
 library(Hmisc)
 
+# Source in get playlist function
 source("data_wrangling.R")
 
+# Retrieve playlist function
 # Some playlists to get started.
 # To get the "playlist user" and "playlist ID", right click on a spotify
 # playlist and go to 'Share' > 'Copy Spotify URI'
-
-# mood_booster <- get_playlist_features("spotify", "37i9dQZF1DX3rxVfibe1L0")
 US_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbLRQDuF5jeBp")
-global_top_50 <- get_playlist_features("spotifycharts", "37i9dQZEVXbMDoHDwVN2tF")
-# top_tracks_2017 <- get_playlist_features("spotify", "37i9dQZF1DX5nwnRMcdReF")
+global_top_50 <- get_playlist_features("spotifycharts",
+                                       "37i9dQZEVXbMDoHDwVN2tF")
 feature_descriptions <- read.csv("data/feature_descriptions.csv")
 
-# Make function which takes in audio features from "US_top_50"
+# Make function which takes in audio features from "global_top_50"
 # and shows a bubble chart the artists, track names, popularity, and selected feature.
 # Set color and size of the bubbles by popularity.
 bubble_plot <- function(feature){
   p <- plot_ly(global_top_50, x = ~get(feature), y = ~artist,
                color = ~popularity,
-               colors = "Set3", size = ~popularity, type = "scatter", mode = "markers",
+               colors = "Set3", size = ~popularity,
+               type = "scatter", mode = "markers",
                sizes = c(10, 40), marker = list(opacity = 0.85,
                              sizemode = "diameter"), hoverinfo = "text",
-               text = ~paste0("Artist: ", artist,"<br>Track: ", tracks,
+               text = ~paste0("Artist: ", artist, "<br>Track: ", tracks,
                               "<br>Popularity: ", popularity,
-                              "<br>", capitalize(feature), ": ", get(feature))) %>%
+                              "<br>", capitalize(feature), ": ",
+                              get(feature))) %>%
+    layout(title = paste0(capitalize(feature), " of Global Top 50 Songs"),
+           margin = list(l = 150, r = 10, b = 30, t = 30),
+           xaxis = list(title = capitalize(feature), showgrid = FALSE),
+           yaxis = list(title = "Artist", showgrid = FALSE))
+  return(p)
+}
+
+# US top 50 popularity vs feature
+us_bubble_plot <- function(feature){
+  p <- plot_ly(US_top_50, x = ~get(feature), y = ~artist,
+               color = ~popularity,
+               colors = "Set3", size = ~popularity,
+               type = "scatter", mode = "markers",
+               sizes = c(10, 40), marker = list(opacity = 0.85,
+                                                sizemode = "diameter"), hoverinfo = "text",
+               text = ~paste0("Artist: ", artist, "<br>Track: ", tracks,
+                              "<br>Popularity: ", popularity,
+                              "<br>", capitalize(feature), ": ",
+                              get(feature))) %>%
     layout(title = paste0(capitalize(feature), " of US Top 50 Songs"),
            margin = list(l = 150, r = 10, b = 30, t = 30),
            xaxis = list(title = capitalize(feature), showgrid = FALSE),
@@ -34,8 +56,8 @@ bubble_plot <- function(feature){
   return(p)
 }
 
-
 shinyServer(function(input, output) {
+  # US top 50 vs. Global top 50
   output$us_global <- renderPlotly({
     x <- input$x_var
     y <- input$y_var
@@ -58,9 +80,20 @@ shinyServer(function(input, output) {
         yaxis = list(title = y)
       )
   })
+
+  # Display output
   output$feature_descriptions <- renderTable(feature_descriptions)
+
   output$feature_bubble <- renderPlotly({
     return(bubble_plot(input$feature))
   })
-})
+  
+  output$US_plot <- renderPlotly({
+    return(us_bubble_plot(input$feature))
+  })
+  
+  output$hi_plot <- renderPlotly({
+    return(random_plot(input$feature))
+  })
 
+})
