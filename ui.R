@@ -229,7 +229,10 @@ shinyUI(
         about spotify. We are using data from Rspotify and we are using that
         to show different visualizations of aspects such as danceability and
         popularity. The data that we have chosen is being used to show people
-        statistics and facts about certain songs, and playslists."),
+        statistics and facts about certain songs, and playslists. To see how we
+        did this, you can visit our repository:"),
+      a("Spotify Song Analysis Repository",
+        href = "https://github.com/alliL/squadBF2"),
       h3("Allison Lee"),
       img(
         src = "Allison.png",
