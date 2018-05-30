@@ -27,7 +27,7 @@ bubble_plot <- function(feature){
                sizes = c(10, 40), marker = list(opacity = 0.85,
                              sizemode = "diameter"), hoverinfo = "text",
                text = ~paste0("Artist: ", artist, "<br>Track: ", tracks,
-                              "<br>Popularity: ", popularity,
+                              
                               "<br>", capitalize(feature), ": ",
                               get(feature))) %>%
     layout(title = paste0(capitalize(feature), " of Global Top 50 Songs"),

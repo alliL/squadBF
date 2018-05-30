@@ -75,6 +75,8 @@ shinyUI(navbarPage(
           choices = features,
           selected = "popularity"
         ),
+        
+        
         # Add a select input for the y variable
         selectInput(
           "y_var",
@@ -82,6 +84,7 @@ shinyUI(navbarPage(
           choices = features,
           selected = "danceability"
         )
+   
       ),
 
       # Create main panel to display scatter plot
@@ -229,7 +232,7 @@ shinyUI(navbarPage(
         src = "https://goo.gl/BWStUh",
         height = 200, width = 200, align = "middle"
       ),
-      p("Hi hi! I am a shophomore at the University Washington Seattle.
+      p("Hi hi! I am a sophomore at the University Washington Seattle.
         My intended major is either
         Informatics or Human Centered Design and Engineering.
         I am originally from Southern California
