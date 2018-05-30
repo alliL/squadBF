@@ -1,10 +1,10 @@
 # used Rspotify library to access Spotify API
 # see documentation here: https://www.r-bloggers.com/my-new-r-package/
-library(Rspotify)
+#library(Rspotify)
 library(dplyr)
 
 # sourcing credentials such as client ID and client secret
-source("api_key.R")
+# source("api_key.R")
 
 # set credentials for the Spotify API
 # IMPORTANT: set the "Redirect URI". Go to your Spotify application on the

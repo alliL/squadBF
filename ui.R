@@ -12,7 +12,7 @@ features <- list(
   "Mode" = "mode",
   "Speechiness" = "speechiness",
   "Acousticness" = "acousticness",
-  "Instrumentalness" = "instrumenalness",
+  "Instrumentalness" = "instrumentalness",
   "Liveness" = "liveness",
   "Valence" = "valence",
   "Tempo" = "tempo",
@@ -52,7 +52,7 @@ shinyUI(navbarPage(
     ),
     # Create sidebar layout
     sidebarLayout(
-
+      
       # Side panel for controls
       sidebarPanel(
         style = "position:fixed;width:300px;color:cadetblue",
