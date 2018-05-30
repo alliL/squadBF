@@ -228,12 +228,10 @@ shinyUI(
     ),
 
     fluidPage(
-      p("The project that we were working on is to show people information
-        about spotify. We are using data from Rspotify and we are using that
-        to show different visualizations of aspects such as danceability and
-        popularity. The data that we have chosen is being used to show people
-        statistics and facts about certain songs, and playslists. To see how we
-        did this, you can visit our repository:"),
+      p("The project that we made shows information about songs on Spotify.
+        Data about the songs are queried using Rspotify and the Spotify API.
+        The visualizations we created show statistics and features about 
+        playslists. To see how we did this, you can visit our repository:"),
       a("Spotify Song Analysis Repository",
         href = "https://github.com/alliL/squadBF2"),
       h3("Allison Lee"),
